@@ -199,7 +199,7 @@ public class Main {
                 administador.crearYAgregarTarea(decripcion,estado,fecha,prioridad);
                 decripcion="jugar a la pelota";
                 estado="incompleta";
-                fecha= LocalDate.of(2023,9,512);
+                fecha= LocalDate.of(2023,9,12);
                 prioridad="urgente";
                 administador.crearYAgregarTarea(decripcion,estado,fecha,prioridad);
                 decripcion="sacar la basura";
