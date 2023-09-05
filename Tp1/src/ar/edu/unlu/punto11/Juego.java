@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Juego {
     private String intentoDePalabra;
     private int cantPuntosPartida;
+    private Diccionario diccionario=new Diccionario();
 
     public String getIntentoDePalabra() {
         return intentoDePalabra;
@@ -30,13 +31,24 @@ public class Juego {
         int puntos=0;
         boolean bandera=true;
         Scanner sc= new Scanner(System.in);
-        Diccionario diccionario = new Diccionario();
         boolean validacion;
         diccionario.agregarPalabra("exodo");
         diccionario.agregarPalabra("lluvia");
         diccionario.agregarPalabra("dedo");
         diccionario.agregarPalabra("queso");
         diccionario.agregarPalabra("kilogramo");
+        diccionario.agregarPalabra("zanahoria");
+        diccionario.agregarPalabra("whisky");
+        diccionario.agregarPalabra("sexo");
+        diccionario.agregarPalabra("arbol");
+        diccionario.agregarPalabra("amor");
+        diccionario.agregarPalabra("dinosaurio");
+        diccionario.agregarPalabra("computadora");
+        diccionario.agregarPalabra("vaca");
+        diccionario.agregarPalabra("calendario");
+        diccionario.agregarPalabra("zapallo");
+        diccionario.agregarPalabra("arte");
+        
         System.out.println("---EL JUEGO INICIO----");
         System.out.println("Bienvenido jugador "+ jugador.getNombre());
         while (bandera){
