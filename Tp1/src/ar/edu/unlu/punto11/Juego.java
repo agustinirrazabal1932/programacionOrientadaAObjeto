@@ -48,7 +48,7 @@ public class Juego {
         diccionario.agregarPalabra("calendario");
         diccionario.agregarPalabra("zapallo");
         diccionario.agregarPalabra("arte");
-        
+
         System.out.println("---EL JUEGO INICIO----");
         System.out.println("Bienvenido jugador "+ jugador.getNombre());
         while (bandera){
