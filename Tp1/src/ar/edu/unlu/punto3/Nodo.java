@@ -1,4 +1,4 @@
-package Ejercicio3;
+package ar.edu.unlu.punto3;
 
 public class Nodo {
     private Object dato;

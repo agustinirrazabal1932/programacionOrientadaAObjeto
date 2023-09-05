@@ -162,6 +162,7 @@ public class Main {
                 }
                 fecha1.esMayorLaFecha(fecha2);
             } else if (opcionNumero==10) {
+                System.out.println("esta implementado en el punto 5.");
 
             } else if (opcionNumero==11) {
 
