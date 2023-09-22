@@ -2,6 +2,7 @@ import punto1.ClubFutbol;
 import punto1.Socio;
 import punto2.SunBeach;
 import punto3.Academia;
+import punto8.Biblioteca;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -220,6 +221,12 @@ public class Main {
             }else if (opcion==7){
                 System.out.println("el punto 7 esta immplementado en el 6");
             }else if (opcion==8){
+                Biblioteca biblioteca=new Biblioteca();
+                //cargar de libros a la biblioteca
+                biblioteca.cargarLibro("frankesteer","100 cuentos","2323665812",24,1900);
+                biblioteca.cargarLibro("pinocho","disney","011457863",55,1930);
+                biblioteca.cargarLibro("frankesteer","100 cuentos","2323665812",99,1900);
+                biblioteca.cargarLibro("la sirenita","disney","011457863",33,1920);
 
             }else if (opcion==9){
 
