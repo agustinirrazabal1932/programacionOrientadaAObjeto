@@ -21,6 +21,8 @@ public class Main {
             System.out.println("1. Punto 1");
             System.out.println("2. Punto 2");
             System.out.println("3. Punto 3");
+            System.out.println("8. Punto 8");
+            System.out.println("9. Punto 9");
             opcion= sc.nextInt();
             if (opcion==1){
                 String nombre="agustin";
@@ -227,9 +229,25 @@ public class Main {
                 biblioteca.cargarLibro("pinocho","disney","011457863",55,1930);
                 biblioteca.cargarLibro("frankesteer","100 cuentos","2323665812",99,1900);
                 biblioteca.cargarLibro("la sirenita","disney","011457863",33,1920);
+                biblioteca.cargarLibro("frankesteer","100 cuentos","2323665812",101,1900);
+                biblioteca.cargarLibro("la sirenita","disney","011457863",66,1920);
+                //carga de socios
+                int idDeAgustin=biblioteca.cargarSocio("agustin","irrazabal","2323648602");
+                int idDeSol=biblioteca.cargarSocio("sol","martinez","2323556147");
+                //el problema
+
+                int librosDeFrankester=biblioteca.cantEjemplarLibro("frankesteer","100 cuentos");
+                System.out.println("la caantidad de libros de frankester es de: "+librosDeFrankester);
+                biblioteca.prestarLibro(idDeSol,"la sirenita","disney");
+                biblioteca.prestarLibro(idDeAgustin,"frankesteer","100 cuentos");
+                biblioteca.verLibrosPrestados();
+                librosDeFrankester=biblioteca.cantEjemplarLibro("frankesteer","100 cuentos");
+                System.out.println("la caantidad de libros de frankester es de: "+librosDeFrankester);
 
             }else if (opcion==9){
 
+            } else if (opcion==10) {
+                
             }
 
         }
