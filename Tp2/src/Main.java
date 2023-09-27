@@ -229,8 +229,16 @@ public class Main {
                 biblioteca.cargarLibro("pinocho","disney","011457863",55,1930);
                 biblioteca.cargarLibro("frankesteer","100 cuentos","2323665812",99,1900);
                 biblioteca.cargarLibro("la sirenita","disney","011457863",33,1920);
+                biblioteca.cargarDiario("1000 noches","Bcc","011986563",15,6,1980);
                 biblioteca.cargarLibro("frankesteer","100 cuentos","2323665812",101,1900);
+                biblioteca.cargarRevista("Ole","La Nacion","2323780139",144,1980);
                 biblioteca.cargarLibro("la sirenita","disney","011457863",66,1920);
+                biblioteca.cargarTesis("La anarquia","tesis Argentina","2323647002","Juan","Fernandez",4,2011);
+
+
+                biblioteca.cargarAutorLibro("pinocho","disney","Facundo","Gallardo");
+                biblioteca.cargarAutorLibro("frankesteer","100 cuentos","Fernando","Gil");
+                biblioteca.cargarAutorLibro("la sirenita","disney","Florencia","Guzman");
                 //carga de socios
                 int idDeAgustin=biblioteca.cargarSocio("agustin","irrazabal","2323648602");
                 int idDeSol=biblioteca.cargarSocio("sol","martinez","2323556147");
