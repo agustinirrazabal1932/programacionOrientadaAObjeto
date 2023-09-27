@@ -6,6 +6,12 @@ import java.util.ArrayList;
 public class appEmpleados {
     private ArrayList<Empleado> listaDeEmpleados=new ArrayList<Empleado>();
 
+    public void mostraSueldos(){
+        for (int i = 0; i < listaDeEmpleados.size(); i++) {
+            Empleado empleadoAux=listaDeEmpleados.get(i);
+            empleadoAux.calcularSueldo();
+        }
+    }
     public String cargarEmpleadoPorHora(String nombre,String apellido,String te,String cuil,LocalDate fecha){
         EmpleadoPorHora empleadoPorHoraNuevo=new EmpleadoPorHora(nombre,apellido,te,cuil,fecha);
         listaDeEmpleados.add(empleadoPorHoraNuevo);

@@ -1,5 +1,6 @@
 import punto1.ClubFutbol;
 import punto1.Socio;
+import punto10.appEmpleados;
 import punto2.SunBeach;
 import punto3.Academia;
 import punto8.Biblioteca;
@@ -255,7 +256,25 @@ public class Main {
             }else if (opcion==9){
 
             } else if (opcion==10) {
-                
+                appEmpleados app=new appEmpleados();
+                //carga de empleados
+                LocalDate fechaCumpleaños=LocalDate.of(2000,8,14);
+                String cuilJorge= app.cargarEmpleadoAsalariado("jorge","pataleo","2323914670","20400198750",fechaCumpleaños);
+                fechaCumpleaños=LocalDate.of(1998,9,20);
+                String cuilJuan= app.cargarEmpleadoPorComision("juan","rodriguez","2323664410","20398461530",fechaCumpleaños);
+                String cuilFacu= app.cargarEmpleadoPorComisionConSalario("facundo","perez","2323054809","20359637410",fechaCumpleaños);
+                fechaCumpleaños=LocalDate.of(1980,7,1);
+                String cuilSeba=app.cargarEmpleadoPorHora("sebastian","ortiz","2323107820","20405566870",fechaCumpleaños);
+
+                //cargar las ventas del fin de mes y el monto del salario
+                float mes= 280350.23F;
+                app.FinDeMesEmpleadoAsalariado(cuilJorge,mes);
+                app.FinDeMesEmpleadoPorComision(cuilJuan,23,150,50);
+                app.FinDeMesEmpleadoPorComisionConSalario(cuilFacu,35,190000,60,180);
+                app.FinDeMesEmpleadoPorHora(cuilSeba,20,1200);
+
+                //ver los sueldo;
+                app.mostraSueldos();
             }
 
         }
