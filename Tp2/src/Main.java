@@ -1,6 +1,7 @@
 import punto1.ClubFutbol;
 import punto1.Socio;
 import punto10.appEmpleados;
+import punto11.SistemaAgenciaDeAuto;
 import punto2.SunBeach;
 import punto3.Academia;
 import punto8.Biblioteca;
@@ -24,7 +25,10 @@ public class Main {
             System.out.println("3. Punto 3");
             System.out.println("8. Punto 8");
             System.out.println("9. Punto 9");
+            System.out.println("10. Punto 10");
+            System.out.println("11. punto 11");
             opcion= sc.nextInt();
+
             if (opcion==1){
                 String nombre="agustin";
                 String apellido="irrazabal";
@@ -275,6 +279,31 @@ public class Main {
 
                 //ver los sueldo;
                 app.mostraSueldos();
+            } else if (opcion==11) {
+                SistemaAgenciaDeAuto sistemaAgenciaDeAuto=new SistemaAgenciaDeAuto();
+                //carga de autos
+                sistemaAgenciaDeAuto.cargarAutoCombi("AJP624",4500);
+                sistemaAgenciaDeAuto.cargarAutoPasajero("JHI123",false,4);
+                sistemaAgenciaDeAuto.cargarAutoPasajero("POO004",true,2);
+                sistemaAgenciaDeAuto.cargarCamionetaFlete("VNT",110,600);
+                sistemaAgenciaDeAuto.cargarCamion("JJL951",100000);
+                sistemaAgenciaDeAuto.cargarAutoPasajero("RIV912",false,5);
+                //carga de clientes
+                String clienteJuan=sistemaAgenciaDeAuto.cargarCliente("juan","fernandez","36951753");
+                String clienteSofia=sistemaAgenciaDeAuto.cargarCliente("sofia","scarnatto","32451963");
+                //pedir Presupuesto
+                LocalDate fechaInicio=LocalDate.of(2023,10,1);
+                LocalDate fechaFinal=LocalDate.of(2023,10,7);
+                int presupuestoJuan1=sistemaAgenciaDeAuto.hacerPresupuesto("JHI123",clienteJuan,fechaInicio,fechaFinal);
+                int presupuestoSofia1=sistemaAgenciaDeAuto.hacerPresupuesto("VNT",clienteSofia,fechaInicio,fechaFinal);
+                int presupuestoSofia2=sistemaAgenciaDeAuto.hacerPresupuesto("AJP624",clienteSofia,fechaInicio,fechaFinal);
+                //confirmar Presupuesto
+                sistemaAgenciaDeAuto.confirmarPresupuesto(clienteJuan,presupuestoJuan1);
+                sistemaAgenciaDeAuto.confirmarPresupuesto(clienteSofia,presupuestoSofia1);
+                sistemaAgenciaDeAuto.confirmarPresupuesto(clienteSofia,presupuestoSofia2);
+//                //ver Alquileres
+                sistemaAgenciaDeAuto.mostrarAlquileresDeUnCliente(clienteSofia);
+                sistemaAgenciaDeAuto.verMontoDelSistema();
             }
 
         }
