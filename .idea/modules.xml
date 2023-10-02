@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Tp1/Tp1.iml" filepath="$PROJECT_DIR$/Tp1/Tp1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tp2/Tp2.iml" filepath="$PROJECT_DIR$/Tp2/Tp2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/programacionOrientadaAObjeto.iml" filepath="$PROJECT_DIR$/.idea/programacionOrientadaAObjeto.iml" />
+    </modules>
+  </component>
+</project>
