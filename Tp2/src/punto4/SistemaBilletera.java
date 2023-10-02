@@ -120,4 +120,14 @@ public class SistemaBilletera {
             }
         }
     }
+    public void activarPreCancelar(String dni){
+        if (clienteEsta(dni)){
+            for (int i = 0; i < listaDeClientes.size(); i++) {
+                Usuario clienteAux=listaDeClientes.get(i);
+                if (clienteAux.getDni().equals(dni)){
+                    clienteAux.ActivarPreCancelar();
+                }
+            }
+        }
+    }
 }

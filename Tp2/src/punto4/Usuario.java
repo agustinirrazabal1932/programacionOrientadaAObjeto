@@ -73,6 +73,9 @@ public class Usuario {
 	public boolean realizarGastoYGirar(double monto) {
 		return this.cuenta.gastar(monto);
 	}
+	public void ActivarPreCancelar(){
+		this.cuenta.activarPreCancelar();
+	}
 	public void realizarPagoDeuda(double monto){
 		this.cuenta.depositar(monto);
 	}

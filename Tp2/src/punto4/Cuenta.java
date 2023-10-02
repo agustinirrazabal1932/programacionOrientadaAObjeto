@@ -139,7 +139,7 @@ public class Cuenta {
 	public void activarPreCancelar(){
 		if (!isPreCancelar()) {
 			setPreCancelar(true);
-			System.out.println("se activo el precancelar");
+			System.out.println("se activo el preCancelar");
 		}
 	}
 	
