@@ -247,10 +247,9 @@ public class Main {
                 appVirtual.realizarVerificacionInversionCuenta(clienteJuan,LocalDate.now());
                 //comprar conmigo
                 appVirtual.realizarCompraCuenta(clienteJuan,30000);
-
-
-
-
+                //ver cuenta
+                appVirtual.VerLasCuentasUsuario(clienteJuan);
+                appVirtual.VerLasCuentasUsuario(clienteSofia);
             }else if (opcion==5){
                 System.out.println("el punto 5 esta implementado en el 4");
             }else if (opcion==6){
