@@ -2,6 +2,7 @@ import punto1.ClubFutbol;
 import punto1.Socio;
 import punto10.appEmpleados;
 import punto11.SistemaAgenciaDeAuto;
+import punto12.SistemaBilleteraNueva;
 import punto2.SunBeach;
 import punto3.Academia;
 import punto4.SistemaBilletera;
@@ -334,6 +335,38 @@ public class Main {
                 sistemaAgenciaDeAuto.mostrarAlquileresDeUnCliente(clienteSofia);
                 sistemaAgenciaDeAuto.verMontoDelSistema();
             } else if (opcion==12) {
+                SistemaBilleteraNueva appVirtual=new SistemaBilleteraNueva();
+                //cargo usuarios
+                String clienteJuan=appVirtual.agregarClienteConCuenta("juan","fernandez","36951753");
+                String clienteSofia=appVirtual.agregarClienteConCuentaYCuentaCredito("sofia","scarnatto","32451963");
+                //ver cuenta
+                appVirtual.VerLasCuentasUsuario(clienteJuan);
+                appVirtual.VerLasCuentasUsuario(clienteSofia);
+                //ingresar saldo;
+                appVirtual.realizarPagoCuenta(clienteJuan,22000d);
+                appVirtual.realizarPagoCuenta(clienteSofia,8000d);
+                //cargar caja de ahorro
+                appVirtual.agregarCajaDeAhorro(clienteJuan);
+                appVirtual.realizarPagoCajaDeAhorro(clienteJuan,50000);
+                //algunas compras
+                appVirtual.realizarCompraCuentaNormal(clienteJuan,15800.50d);
+                appVirtual.realizarCompraCajaDeAhorro(clienteJuan,46175);
+                appVirtual.realizarCompraCuentaCredito(clienteSofia,18500.50d);
+                appVirtual.realizarCompraCuentaCredito(clienteSofia,30000);
+                //invertir
+                appVirtual.realizarInversionCuenta(clienteJuan,5000d,LocalDate.of(2023,9,2));
+                //ver cuenta
+                appVirtual.VerLasCuentasUsuario(clienteJuan);
+                appVirtual.VerLasCuentasUsuario(clienteSofia);
+                //pagar y ver inversiones
+                appVirtual.realizarPagoCuenta(clienteJuan,15000d);
+                appVirtual.realizarPagoCuentaCredito(clienteSofia,10000d,1);
+                appVirtual.realizarVerificacionInversionCuenta(clienteJuan,LocalDate.now());
+                //comprar conmigo
+                appVirtual.realizarCompraCuentaNormal(clienteJuan,30000);
+                //ver cuenta
+                appVirtual.VerLasCuentasUsuario(clienteJuan);
+                appVirtual.VerLasCuentasUsuario(clienteSofia);
 
             } else if (opcion==13) {
 
