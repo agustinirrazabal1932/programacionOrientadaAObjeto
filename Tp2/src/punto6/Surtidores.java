@@ -3,10 +3,12 @@ package punto6;
 public class Surtidores {
     private int codigo;
     private String tipoCombustible;
+    private double valorDe1Litro;
 
-    public Surtidores(int codigo, String tipoCombustible) {
+    public Surtidores(int codigo, String tipoCombustible,double valorDe1Litro) {
         this.codigo = codigo;
         this.tipoCombustible = tipoCombustible;
+        this.valorDe1Litro=valorDe1Litro;
     }
 
     public int getCodigo() {
@@ -23,5 +25,9 @@ public class Surtidores {
 
     public void setTipoCombustible(String tipoCombustible) {
         this.tipoCombustible = tipoCombustible;
+    }
+
+    public double getValorDe1Litro() {
+        return valorDe1Litro;
     }
 }

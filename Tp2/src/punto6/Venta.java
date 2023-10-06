@@ -12,7 +12,7 @@ public class Venta {
     private String tipoCombustible;
 
     public Venta(double monto, String patente, String dniPlayero, int codigoSurtido, LocalDate fechaVenta, String tipoCombustible) {
-        this.monto = monto;
+        this.monto =monto;
         this.patente = patente;
         this.dniPlayero = dniPlayero;
         this.codigoSurtido = codigoSurtido;

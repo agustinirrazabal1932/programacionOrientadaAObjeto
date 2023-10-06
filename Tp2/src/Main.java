@@ -1,14 +1,13 @@
 import punto1.ClubFutbol;
-import punto1.Socio;
 import punto10.appEmpleados;
 import punto11.SistemaAgenciaDeAuto;
 import punto12.SistemaBilleteraNueva;
 import punto2.SunBeach;
 import punto3.Academia;
 import punto4.SistemaBilletera;
+import punto6.ControlDeVentas;
 import punto8.Biblioteca;
 
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Scanner;
@@ -25,10 +24,18 @@ public class Main {
             System.out.println("1. Punto 1");
             System.out.println("2. Punto 2");
             System.out.println("3. Punto 3");
+            System.out.println("4. Punto 4");
+            System.out.println("5. Punto 5");
+            System.out.println("6. Punto 6");
+            System.out.println("7. Punto 7");
             System.out.println("8. Punto 8");
             System.out.println("9. Punto 9");
             System.out.println("10. Punto 10");
             System.out.println("11. punto 11");
+            System.out.println("12. punto 12");
+            System.out.println("13. punto 13");
+            System.out.println("14. punto 14");
+            System.out.println("0. Para salir del menu");
             opcion= sc.nextInt();
 
             if (opcion==1){
@@ -253,6 +260,32 @@ public class Main {
             }else if (opcion==5){
                 System.out.println("el punto 5 esta implementado en el 4");
             }else if (opcion==6){
+                ControlDeVentas controlDeVentas= new ControlDeVentas();
+                //cargar de surtidores;
+                controlDeVentas.cargarSurtidor("nafta",135);
+                controlDeVentas.cargarSurtidor("gasoil",200);
+                controlDeVentas.cargarSurtidor("keroseno",50);
+                controlDeVentas.cargarSurtidor("nafta",100);
+
+                //cargar de empleado
+                String empleadoAgustin=controlDeVentas.cargarEmpleado("agustin","irrazabal","44115834");
+                String empleadoMatias=controlDeVentas.cargarEmpleado("matias","farias","40658123");
+                String empleadoFernando=controlDeVentas.cargarEmpleado("fernando","farias","39678124");
+
+                //cargar venta
+                controlDeVentas.cargarVenta(14,"VHR578","juan","fernandez",empleadoMatias,1,LocalDate.of(2023,6,12),false);
+                controlDeVentas.cargarVenta(20,"QEW628","juan","leal",empleadoMatias,3,LocalDate.of(2023,6,12),false);
+                controlDeVentas.cargarVenta(30,"VBH021","felipe","quevedo",empleadoFernando,2,LocalDate.of(2023,6,12),false);
+                controlDeVentas.cargarVenta(100,"FYT573","tomas","genoves",empleadoAgustin,4,LocalDate.of(2023,6,12),false);
+                controlDeVentas.cargarVenta(20,"POO147","felipe","massa",empleadoAgustin,3,LocalDate.of(2023,6,12),true);
+
+                //ver lo pedido
+                controlDeVentas.ordenarSurtidoresVenta();
+                controlDeVentas.listadoDeProporcionCombustible();
+                controlDeVentas.ordenarSurtidoresLitros();
+                controlDeVentas.verEmpleadoTop10YActualizar();
+                controlDeVentas.verClienteTop10YActualizar();
+
 
             }else if (opcion==7){
                 System.out.println("el punto 7 esta immplementado en el 6");

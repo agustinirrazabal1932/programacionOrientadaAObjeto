@@ -4,11 +4,13 @@ public class Empleado {
     private String nombre;
     private String  apellido;
     private String dni;
+    private boolean descuento;
 
     public Empleado(String nombre, String apellido, String dni) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
+        this.descuento=true;
     }
 
     public String getNombre() {
@@ -33,5 +35,13 @@ public class Empleado {
 
     public void setDni(String dni) {
         this.dni = dni;
+    }
+
+    public boolean isDescuento() {
+        return descuento;
+    }
+
+    public void setDescuento(boolean descuento) {
+        this.descuento = descuento;
     }
 }
