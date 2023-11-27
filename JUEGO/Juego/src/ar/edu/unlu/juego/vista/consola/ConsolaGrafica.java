@@ -75,8 +75,15 @@ public class ConsolaGrafica implements Ivista {
 
     @Override
     public void jugar(String id) {
-        flujoActual=new FlujoJugador1(this,controlador,id,id);
+        flujoActual=new FlujoJugador1(this,controlador,id,controlador.devolverID());
         flujoActual.mostarSiguienteTexto();
     }
+
+    @Override
+    public void terminoJuego(String idGanador) {
+        flujoActual=new FlujoPerdi(this,controlador,idGanador);
+        flujoActual.mostarSiguienteTexto();
+    }
+
 
 }

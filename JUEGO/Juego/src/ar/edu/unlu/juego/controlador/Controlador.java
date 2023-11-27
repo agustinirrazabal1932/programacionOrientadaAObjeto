@@ -144,6 +144,11 @@ public class Controlador implements Observadores {
         vistaJuego.jugar(id);
     }
 
+    @Override
+    public void TerminoJuego(String idGanador) {
+        vistaJuego.terminoJuego(idGanador);
+    }
+
     public void agregarID(String idDelJugador) {
         this.IdPrincipal=idDelJugador;
     }

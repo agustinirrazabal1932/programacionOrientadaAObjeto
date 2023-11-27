@@ -507,11 +507,21 @@ public class Modelo implements Observado {
         limpiarManoDeJugadores(jugadorGanoPartida);
         boolean isGanador=verificarSiTerminoELjuego();
         if (isGanador){
+            avisarQueTerminoJuego(idJugador);
             limpiarPuntosDeJugadores();
             partida.clear();
         }
         return isGanador;
 
+    }
+
+    private void avisarQueTerminoJuego(String idJugadorGanador) {
+        for (Observadores observadores1 : observadores) {
+            String idControl = observadores1.devolverID();
+            if (!idControl.equals(idJugadorGanador)) {
+                observadores1.TerminoJuego(idJugadorGanador);
+            }
+        }
     }
 
     public void sumarVictoria(String idJugador) {

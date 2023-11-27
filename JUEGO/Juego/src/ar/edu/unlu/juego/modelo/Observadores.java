@@ -5,4 +5,8 @@ public interface Observadores {
     public String devolverID();
 
     void jugar(String id);
+
+    void TerminoJuego(String idControl);
+
+
 }

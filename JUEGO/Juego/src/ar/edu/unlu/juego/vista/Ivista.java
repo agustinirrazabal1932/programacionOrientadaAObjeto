@@ -9,4 +9,6 @@ public interface Ivista {
     void devolverConsolaGrafica();
 
     void jugar(String id);
+
+    void terminoJuego(String idGanador);
 }

@@ -4,12 +4,11 @@ public class Carta {
     private String color;
     private int numero;
     private int valor;
-    private boolean enUso;
+
 
     public Carta(String color, int numero) {
         this.color = color;
         this.numero = numero;
-        this.enUso=false;
         setValor();
     }
 
@@ -43,17 +42,6 @@ public class Carta {
         }else {
             this.valor=numero;
         }
-    }
-    public void seVaUsar() {
-        this.enUso=true;
-    }
-
-    public boolean isEnUso() {
-        return enUso;
-    }
-
-    public void noSeUso() {
-        this.enUso=false;
     }
 }
 
