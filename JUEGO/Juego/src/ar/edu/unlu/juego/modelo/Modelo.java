@@ -346,9 +346,20 @@ public class Modelo implements Observado {
             avisarQueTerminoJuego(idJugador);
             limpiarPuntosDeJugadores();
             partida.clear();
+        }else {
+            avisarQueTerminoPartida(idJugador);
         }
         return isGanador;
 
+    }
+
+    private void avisarQueTerminoPartida(String idJugador) {
+        for (Observadores observadores1 : observadores) {
+            String idControl = observadores1.devolverID();
+            if (!idControl.equals(idJugador)) {
+                observadores1.TerminoPartida(idJugador);
+            }
+        }
     }
 
     private void avisarQueTerminoJuego(String idJugadorGanador) {
@@ -441,5 +452,36 @@ public class Modelo implements Observado {
                 System.out.println("el id que se paso fue " + idControl);
             }
         }
+    }
+
+    public int jugadoresPartida() {
+        return partida.size();
+    }
+
+    public String jugadoresPartidaNombre(int i) {
+        return partida.get(i).getId();
+    }
+
+    public int jugadoresPartidaPuntos(int i) {
+        return partida.get(i).getPuntos();
+    }
+
+    public void reiniciarPartida() {
+        for (Jugador jugadorAux: partida){
+            for (int i=0;i<7;i++){
+                Carta cartaAux = this.mazo.darCarta();
+                if (cartaAux != null) {
+                    jugadorAux.tomarCarta(cartaAux);
+                }
+            }
+        }
+        //poner la dos carta boca arriba en la meza
+        for (int i = 0; i < 2; i++) {
+            Carta cartaBocaArriba = this.mazo.darCarta();
+            if (cartaBocaArriba != null) {
+                this.cartasBocaArriba.add(cartaBocaArriba);
+            }
+        }
+
     }
 }

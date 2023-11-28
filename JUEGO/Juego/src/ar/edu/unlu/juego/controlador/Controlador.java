@@ -147,6 +147,11 @@ public class Controlador implements Observadores {
         vistaJuego.terminoJuego(idGanador);
     }
 
+    @Override
+    public void TerminoPartida(String idJugador) {
+        vistaJuego.terminoPartida(idJugador);
+    }
+
     public void agregarID(String idDelJugador) {
         this.IdPrincipal=idDelJugador;
     }
@@ -157,5 +162,21 @@ public class Controlador implements Observadores {
 
     public void terminoTurno(String idPrincipal) {
         modeloJuego.cambioTurno(idPrincipal);
+    }
+
+    public int jugadoresPartida() {
+        return modeloJuego.jugadoresPartida();
+    }
+
+    public String jugadorNombrePartida(int i) {
+        return modeloJuego.jugadoresPartidaNombre(i);
+    }
+
+    public int jugadorPuntosPartida(int i) {
+        return modeloJuego.jugadoresPartidaPuntos(i);
+    }
+
+    public void Partida2Jugadores() {
+        modeloJuego.reiniciarPartida();
     }
 }

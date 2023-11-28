@@ -9,4 +9,5 @@ public interface Observadores {
     void TerminoJuego(String idControl);
 
 
+    void TerminoPartida(String idJugador);
 }

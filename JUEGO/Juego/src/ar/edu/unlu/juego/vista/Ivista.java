@@ -11,4 +11,6 @@ public interface Ivista {
     void jugar(String id);
 
     void terminoJuego(String idGanador);
+
+    void terminoPartida(String idJugador);
 }

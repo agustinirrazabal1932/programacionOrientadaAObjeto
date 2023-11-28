@@ -38,7 +38,7 @@ public class FlujoIniciarJuego extends Flujo{
                 vista.println("se encontro el jugador 2 correctamente");
                 vista.println("---Comienza el Juego---");
                 controlador.iniciarPartida2Jugadores(idPrincipal, ID);
-                return new FlujoJugador1(vista,controlador, idPrincipal, idPrincipal);
+                return new FlujoJugador1(vista,controlador, idPrincipal,idPrincipal);
             } else {
                 vista.println("no se encontro el jugador 2....");
                 return new FlujoMenuPrincipal(vista, controlador, idPrincipal);

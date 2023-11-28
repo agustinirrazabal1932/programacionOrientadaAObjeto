@@ -17,7 +17,7 @@ public class FlujoJugador1 extends Flujo{
         CARTA_BOCA_ARRIBA_COMODIN,
         TOMAR_CARTA_DE_MAZO_J1,
         PASAR_TURNO,
-        FIN_TURNO, FIN_JUEGO,
+        FIN_TURNO, FIN_JUEGO, VER_PUNTOS_JUEGO,
 
     }
     private estados estadoActual=estados.INICIAR_TURNO_JUGADOR1;
@@ -44,6 +44,7 @@ public class FlujoJugador1 extends Flujo{
     @Override
     public Flujo procesarEntrada(String entrada) {
         switch (estadoActual){
+            case VER_PUNTOS_JUEGO -> procesarLosPuntos(entrada);
             case INICIAR_TURNO_JUGADOR1 -> procesarTurnoJugador1(entrada);
             case COMBINACION_SIMPLE_J1 -> procesarIngresoCartaJuegoSimple(entrada);
             case ELIGE_CARTA_BOCA_ARRIBA -> procesarCombinacionJ1(entrada);
@@ -64,6 +65,29 @@ public class FlujoJugador1 extends Flujo{
         return this;
     }
 
+    private void procesarLosPuntos(String entrada) {
+        int numeroEntrada;
+        try {
+            numeroEntrada=Integer.parseInt(entrada);
+            if (numeroEntrada!=1){
+                vista.println("Ingrese una opcion Correcta...");
+                estadoActual=estados.VER_PUNTOS_JUEGO;
+            }else {
+
+                int totalJugadores=controlador.jugadoresPartida();
+                for (int i = 0; i < totalJugadores; i++) {
+                    String nombreId=controlador.jugadorNombrePartida(i);
+                    int puntosId=controlador.jugadorPuntosPartida(i);
+                    vista.println("JUGADOR: "+nombreId+", PUNTOS: "+puntosId);
+                    vista.println("------------------------------------------");
+                }
+                estadoActual=estados.INICIAR_TURNO_JUGADOR1;
+            }
+        } catch (NumberFormatException e) {
+            vista.println("Ingrese un número válido.");
+        }
+    }
+
     private Flujo procesarFinPartida() {
         vista.println("termino la Partida...");
         boolean isGanador=controlador.tareasDeFinDePartida(idJugador1);
@@ -74,7 +98,7 @@ public class FlujoJugador1 extends Flujo{
             return new FlujoMenuPrincipal(vista,controlador, idPrincipal);
         }
         else {
-            controlador.iniciarPartida2Jugadores(idJugador1,idJugador2);
+            controlador.Partida2Jugadores();
             return new FlujoJugador1(vista,controlador,idJugador1,idPrincipal);
         }
     }
@@ -322,6 +346,9 @@ public class FlujoJugador1 extends Flujo{
             case "4"->{
                 estadoActual=estados.PASAR_TURNO;
             }
+            case "5"->{
+                estadoActual=estados.VER_PUNTOS_JUEGO;
+            }
             default -> vista.println("ingrese un valor valido...");
         }
 
@@ -347,7 +374,11 @@ public class FlujoJugador1 extends Flujo{
                 vista.println("2. Combinacion Doble");
                 vista.println("3. Tomar Carta");
                 vista.println("4. Paso");
+                vista.println("5. Ver puntos del juego");
 
+            }
+            case VER_PUNTOS_JUEGO -> {
+                vista.println("para ver los puntos ingrese 1...");
             }
             case COMBINACION_SIMPLE_J1 -> {
                 int contador=1;
