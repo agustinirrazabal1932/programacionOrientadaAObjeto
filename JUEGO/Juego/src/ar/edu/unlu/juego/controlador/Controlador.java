@@ -5,8 +5,6 @@ import ar.edu.unlu.juego.modelo.Jugador;
 import ar.edu.unlu.juego.modelo.Modelo;
 import ar.edu.unlu.juego.modelo.Observadores;
 import ar.edu.unlu.juego.vista.Ivista;
-import ar.edu.unlu.juego.vista.consola.ConsolaGrafica;
-import ar.edu.unlu.juego.vista.consola.FlujoEsperar;
 
 import java.util.ArrayList;
 
@@ -23,7 +21,7 @@ public class Controlador implements Observadores {
     public void cargarUsuario(String nombre,String apellido,String id){
         modeloJuego.cargarUsuarioAdm(nombre, apellido, id);
     }
-    public void iniciarPartida2Jugadores(String idJugador1, String idJugador2){
+    public void iniciarPartida2Jugadores(String idJugador1, String idJugador2) {
         this.modeloJuego.iniciarPartida2Jugadores(idJugador1,idJugador2);
         this.modeloJuego.informarJugadorQueEntroALaPartida(idJugador2);
     }

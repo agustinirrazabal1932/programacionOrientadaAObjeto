@@ -1,8 +1,7 @@
 package ar.edu.unlu.juego.modelo;
 
-
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 public class Modelo implements Observado {
     private Mazo mazo;
@@ -33,7 +32,7 @@ public class Modelo implements Observado {
         jugadorNuevo.agregarGanadas(juegos);
         this.listaDeJuegadores.add(jugadorNuevo);
     }
-    public void iniciarPartida2Jugadores(String idJugador1,String idJugador2) {
+    public void iniciarPartida2Jugadores(String idJugador1,String idJugador2){
 
         //busco si el id esta en el juego;
         Jugador jugador2 = null;
