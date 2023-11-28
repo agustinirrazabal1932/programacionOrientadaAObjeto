@@ -1,5 +1,6 @@
 package ar.edu.unlu.juego.modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Jugador {
@@ -46,9 +47,8 @@ public class Jugador {
 
         boolean paraHacerUnaVez=false;
         for (Carta cartaMano:this.cartasDeLaMano){
-            if (cartaMano.getNumero()==numeroEntero && cartaMano.getColor().equals(color) && !cartaMano.isEnUso() && !paraHacerUnaVez){
+            if (cartaMano.getNumero()==numeroEntero && cartaMano.getColor().equals(color) && !paraHacerUnaVez){
                     estaLaCarta=true;
-                    cartaMano.seVaUsar();
                     paraHacerUnaVez=true;
             }
         }
@@ -74,25 +74,6 @@ public class Jugador {
 
     public int getPuntos() {
         return puntos;
-    }
-
-    public void noSeUsoLaCarta(String color,String numero) {
-        int numeroEntero;
-        numero.replaceAll(" ", "");
-        if (numero.equals("#")){
-            numeroEntero=0;
-        }else {
-            numeroEntero= Integer.parseInt(numero);
-
-        }
-
-
-        for (Carta cartaMano:this.cartasDeLaMano){
-            if (cartaMano.getNumero()==numeroEntero && cartaMano.getColor().equals(color) && cartaMano.isEnUso()){
-                cartaMano.noSeUso();
-            }
-
-        }
     }
 
     public int catidadDeCartasDeMano() {
