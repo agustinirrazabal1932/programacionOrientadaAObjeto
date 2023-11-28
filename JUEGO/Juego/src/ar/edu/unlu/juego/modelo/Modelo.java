@@ -33,19 +33,6 @@ public class Modelo implements Observado {
         jugadorNuevo.agregarGanadas(juegos);
         this.listaDeJuegadores.add(jugadorNuevo);
     }
-    public void verCartaMazo(){
-        this.mazo.mezclar();
-        this.mazo.VerMazo();
-    }
-    public void verCartaBocaArriba(){
-        if (!this.cartasBocaArriba.isEmpty()) {
-            for (Carta cartaAux : this.cartasBocaArriba) {
-                System.out.println(cartaAux);
-            }
-        }else {
-            System.out.println("Ya no hay cartas boca Arriba libres en la mesa para armar juegos...");
-        }
-    }
     public void iniciarPartida2Jugadores(String idJugador1,String idJugador2) {
 
         //busco si el id esta en el juego;
@@ -70,7 +57,6 @@ public class Modelo implements Observado {
 
                 //cargo los jugadores en la partida
                 cargarJugadoresPartida(jugador1, jugador2);
-                //esperarEnter();
 
 
                 //reparte las carta de la mano
@@ -107,76 +93,6 @@ public class Modelo implements Observado {
             }
         }
     }
-
-                //empezar a jugar
-//                boolean finDeLaPartida = false;
-//                boolean finDelJuego = false;
-//                int turno = 0;
-//                boolean juegoDobleColor2 = false;
-//                boolean juegoDobleColor1 = false;
-//                while (!finDelJuego) {
-//                    while (!finDeLaPartida) {
-//
-//                        if (turno == 0) {
-//
-//                            }
-//                            //verifico si algun jugador no dijo dos
-//                            verificarSiJugadorDijoDos(jugador1);
-//
-//                            //verifico si se quedo sin carta el jugador 1
-//                            if (jugador1.catidadDeCartasDeMano() == 0) {
-//                                finDeLaPartida = true;
-//                                System.out.println("¡¡¡¡ Termino La partida el ganador es " + jugador2.getId() + " !!!!");
-//                                esperarEnter();
-//
-//                                //le sumo los valores de la carta del jugador contrario
-//                                sumarValores(jugador2);
-//                                //poner todas las cartas de los otros jugadores en el mazo
-//                                limpiarManoDeJugadores(jugador2);
-//                            }
-//
-//                        } else if (turno == 2) {
-//
-//                            }
-//                            //verifico si algun jugador no dijo dos
-//                            verificarSiJugadorDijoDos(jugador2);
-//
-//                            //verifico si se quedo sin carta el jugador 2
-//                            if (jugador2.catidadDeCartasDeMano() == 0) {
-//                                finDeLaPartida = true;
-//                                System.out.println("¡¡¡¡ Termino La partida el ganador es " + jugador2.getId() + " !!!!");
-//                                esperarEnter();
-//
-//                                //le sumo los valores de la carta del jugador contrario
-//                                sumarValores(jugador2);
-//                                //poner todas las cartas de los otros jugadores en el mazo
-//                                limpiarManoDeJugadores(jugador2);
-//                            }
-//                        }
-//                        turno++;
-//                        if (turno > maxJugador) {
-//                            turno = 0;
-//                        }
-//                    }
-//                    //para agarrar todas las cartas que se usaron en la partida y ponerla en el mazo
-//                    sinCartasEnElMazo();
-//                    //poner las cartas boca arriba en el mazo y limpiar el array de cartas boca arriba
-//                    for (Carta cartaAux: cartasBocaArriba){
-//                        mazo.tomarCartaMazo(cartaAux);
-//                    }
-//                    cartasBocaArriba.clear();
-//
-//                    //verifico si termino el juego
-//                    if (verificarSiTerminoELjuego()){
-//                        finDelJuego=true;
-//                    }
-//                }
-//                //busco al ganador y muestro y limpio los puntos de todos lo de la partida
-//                buscarGanador();
-//                partida.clear();
-//            }
-//        }
-//    }
 
     private void limpiarPuntosDeJugadores() {
         for (Jugador jugadorAux : partida){
@@ -218,30 +134,6 @@ public class Modelo implements Observado {
         jugadorASumar.sumarPuntos(total);
     }
 
-    private void verificarSiJugadorDijoDos(Jugador jugador1) {
-        for (Jugador jugadorPartida:this.partida){
-            if (!jugadorPartida.getId().equals(jugador1.getId())){
-                if (jugadorPartida.catidadDeCartasDeMano()<=2){
-                    if (!jugadorPartida.isDecirDos()){
-                        System.out.println("el jugador "+jugadorPartida.getId()+" no dijo DOS y" +
-                                " le quedan 2 o 1 cartas en la mano...");
-                        System.out.println("entoces tomara dos cartas del mazo...");
-                        for (int i = 0; i < 2; i++) {
-                            Carta carta=this.mazo.darCarta();
-                            if (carta!=null){
-                                jugadorPartida.tomarCarta(carta);
-                            }else {
-                                sinCartasEnElMazo();
-                                Carta cartaNueva=this.mazo.darCarta();
-                                jugadorPartida.tomarCarta(cartaNueva);
-                            }
-                        }
-                        esperarEnter();
-                    }
-                }
-            }
-        }
-    }
 
     private void cargarJugadoresPartida(Jugador jugador1, Jugador jugador2) {
         this.partida.add(jugador1);
@@ -249,61 +141,6 @@ public class Modelo implements Observado {
         //System.out.println("Se encontraron los 2 jugadores en la partida...");
     }
 
-    private void esperarEnter(){
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Para Continuar presione Enter...");
-        sc.nextLine();
-    }
-    private boolean menuJugador(Jugador jugador1) {
-        Scanner sc = new Scanner(System.in);
-        boolean juegoSimpleFull = false;
-        boolean juegoSimple = false;
-        boolean juegoDoble = false;
-        boolean juegoDobleFull = false;
-        boolean tomarCarta = false;
-        int opcion = 0;
-        int opcionFinal = 1;
-        if (juegoSimple) {
-
-
-        } else if (opcion == 5) {
-            if (jugador1.catidadDeCartasDeMano() <= 2) {
-                jugador1.avisarDeDos();
-                esperarEnter();
-            } else {
-                System.out.println("ingrese una opcion valida...");
-                esperarEnter();
-            }
-        } else {
-            System.out.println("ingrese una opcion valida...");
-            esperarEnter();
-        }
-
-        //verifico si tine 2 o menos carta en la mano despues de descartar 1 por hacer un juego de color
-        if (jugador1.catidadDeCartasDeMano() <= 2 && !jugador1.isDecirDos()) {
-            boolean validarDatoString = false;
-            while (!validarDatoString) {
-                System.out.println("Tiene 2 o menos cartas en la mano...");
-                System.out.println("¿Quiere decir DOS?");
-                System.out.println("1. Si");
-                System.out.println("2. No");
-                System.out.println("seleccione un numero de la opciones");
-                String decirDos = sc.nextLine();
-                if (decirDos.equals("1")) {
-                    validarDatoString = true;
-                    jugador1.avisarDeDos();
-                    esperarEnter();
-                } else if (decirDos.equals("2")) {
-                    validarDatoString = true;
-                } else {
-                    System.out.println("ingrese una opcion correcta...");
-                    esperarEnter();
-                }
-            }
-        }
-        return juegoDobleFull;
-
-    }
 
     private void removerCartasUsadasDoble(Carta cartaUsar1, Carta cartaUsar2, Carta cartaUsarBocaArriba) {
         this.cartasUsadas.add(cartaUsar1);
